@@ -16,7 +16,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BackendException.class)
     public ResponseEntity<ErrorResponse> handleNoteException(BackendException e) {
         ErrorCode errorCode = e.getErrorCode();
-        ErrorResponse response = ErrorResponse.of(errorCode);
+        ErrorResponse response = ErrorResponse.of(errorCode.getMessage(), errorCode.getStatusCode());
 
         return new ResponseEntity<>(response, HttpStatus.valueOf(errorCode.getStatusCode()));
     }
@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<ErrorResponse> handleConstraintViolationException(ConstraintViolationException e) {
         ErrorCode errorCode = ErrorCode.BAD_REQUEST;
-        ErrorResponse response = ErrorResponse.of(errorCode);
+        ErrorResponse response = ErrorResponse.of(errorCode.getMessage(), errorCode.getStatusCode());
 
         return new ResponseEntity<>(response, HttpStatus.valueOf(errorCode.getStatusCode()));
     }
@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleException(Exception e) {
         ErrorCode errorCode = ErrorCode.INTERNAL_SERVER_ERROR;
-        ErrorResponse response = ErrorResponse.of(errorCode);
+        ErrorResponse response = ErrorResponse.of(errorCode.getMessage(), errorCode.getStatusCode());
 
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
