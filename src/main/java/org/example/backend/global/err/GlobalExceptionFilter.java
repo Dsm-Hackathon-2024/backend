@@ -22,14 +22,14 @@ public class GlobalExceptionFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
         } catch (BackendException e) {
             ErrorCode errorCode = e.getErrorCode();
-            writerErrorResponse(response, ErrorResponse.of(errorCode), errorCode.getStatusCode());
+            writerErrorResponse(response, ErrorResponse.of(errorCode));
         } catch (Exception e) {
-            writerErrorResponse(response, ErrorResponse.of(e.getMessage()), response.getStatus());
+            writerErrorResponse(response, ErrorResponse.of(e.getMessage(), response.getStatus()));
         }
     }
 
-    private void writerErrorResponse(HttpServletResponse response, ErrorResponse errorResponse, int status) throws IOException {
-        response.setStatus(status);
+    private void writerErrorResponse(HttpServletResponse response, ErrorResponse errorResponse) throws IOException {
+        response.setStatus(errorResponse.getStatus());
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         objectMapper.writeValue(response.getWriter(), errorResponse);
