@@ -28,7 +28,7 @@ public class UserSignupService {
         String name = request.getName();
         String password = passwordEncoder.encode(request.getPassword());
 
-        if (userRepository.existsByUsername(name)) {
+        if (userRepository.existsByName(name)) {
             throw UserAlreadyExistsException.EXCEPTION;
         }
 
