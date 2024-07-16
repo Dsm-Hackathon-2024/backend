@@ -24,6 +24,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Configuration
 public class SecurityConfig {
+
     private final ObjectMapper objectMapper;
 
     @Bean
