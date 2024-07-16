@@ -13,6 +13,7 @@ import java.io.IOException;
 
 @RequiredArgsConstructor
 public class GlobalExceptionFilter extends OncePerRequestFilter {
+
     private final ObjectMapper objectMapper;
 
     @Override
