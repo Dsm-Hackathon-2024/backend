@@ -6,7 +6,6 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.example.backend.domain.user.facade.UserFacade;
 import org.example.backend.domain.user.presentation.dto.response.TokenResponse;
 import org.example.backend.global.exception.ExpiredTokenException;
 import org.example.backend.global.exception.InvalidTokenException;
