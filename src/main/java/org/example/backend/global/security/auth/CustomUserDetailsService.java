@@ -15,7 +15,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-        User user = userFacade.findByUsername(username);
+        User user = userFacade.findByName(username);
 
         return new CustomUserDetails(user);
     }

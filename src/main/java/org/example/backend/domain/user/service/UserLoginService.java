@@ -22,7 +22,7 @@ public class UserLoginService {
     private final UserFacade userFacade;
 
     public TokenResponse execute(LoginRequest request) {
-        User user = userFacade.findByUsername(request.getName());
+        User user = userFacade.findByName(request.getName());
 
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw PasswordNotValidException.EXCEPTION;
