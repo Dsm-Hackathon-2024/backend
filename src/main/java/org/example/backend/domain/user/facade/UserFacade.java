@@ -18,7 +18,7 @@ public class UserFacade {
         return userRepository.findByName(username).orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
 
-    public User findByUsername(String username) {
+    public User findByName(String username) {
         return userRepository.findByName(username).orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
 }
