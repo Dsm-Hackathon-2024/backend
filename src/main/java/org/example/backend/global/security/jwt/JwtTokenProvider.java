@@ -31,7 +31,13 @@ public class JwtTokenProvider {
     public String createAccessToken(String accountId) {
         Date now = new Date();
 
-        return Jwts.builder().setSubject(accountId).claim("type", "access").setIssuedAt(now).setExpiration(new Date(now.getTime() + jwtProperties.getAccessExpiration() * 1000)).signWith(SignatureAlgorithm.HS256, jwtProperties.getSecret()).compact();
+        return Jwts.builder()
+                .setSubject(accountId)
+                .claim("type", "access")
+                .setIssuedAt(now)
+                .setExpiration(new Date(now.getTime() + jwtProperties.getAccessExpiration() * 1000))
+                .signWith(SignatureAlgorithm.HS256, jwtProperties.getSecret())
+                .compact();
     }
 
     public Authentication getAuthentication(String token) {
