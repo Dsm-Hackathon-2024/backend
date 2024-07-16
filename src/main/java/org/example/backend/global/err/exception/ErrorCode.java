@@ -9,6 +9,11 @@ import lombok.Getter;
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum ErrorCode {
 
+    USER_ALREADY_EXISTS(409, "User Already Exists"),
+    EXPIRED_TOKEN(401, "expired token"),
+    INVALID_TOKEN(401, "invalid token"),
+    PASSWORD_MISMATCH(401, "password mismatch"),
+    USER_NOT_FOUND(404, "User Not Found"),
     BAD_REQUEST(400, "bad request"),
     INTERNAL_SERVER_ERROR(500, "server error");
 
