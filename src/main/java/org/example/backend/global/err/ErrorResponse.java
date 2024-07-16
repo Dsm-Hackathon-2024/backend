@@ -13,15 +13,13 @@ import java.time.LocalDateTime;
 public class ErrorResponse {
 
     private String message;
-    private Integer status;
     private LocalDateTime timestamp;
-    private String description;
 
     public static ErrorResponse of(ErrorCode errorCode) {
-        return ErrorResponse.builder().message(errorCode.getMessage()).status(errorCode.getStatusCode()).timestamp(LocalDateTime.now()).description(errorCode.getMessage()).build();
+        return ErrorResponse.builder().message(errorCode.getMessage()).timestamp(LocalDateTime.now()).build();
     }
 
-    public static ErrorResponse of(int statusCode, String description) {
-        return ErrorResponse.builder().message(description).status(statusCode).timestamp(LocalDateTime.now()).description(description).build();
+    public static ErrorResponse of(String message) {
+        return ErrorResponse.builder().message(message).timestamp(LocalDateTime.now()).build();
     }
 }
