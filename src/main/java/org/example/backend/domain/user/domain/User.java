@@ -24,12 +24,13 @@ public class User {
     @Column(columnDefinition = "char(5)", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Invest> invests;
+    @Column(nullable = false)
+    private Long point;
 
     @Builder
-    public User(String password, String name) {
+    public User(String password, String name, Long point) {
         this.password = password;
         this.name = name;
+        this.point = point;
     }
 }
