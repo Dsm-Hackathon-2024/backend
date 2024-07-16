@@ -22,7 +22,7 @@ public class GlobalExceptionFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
         } catch (BackendException e) {
             ErrorCode errorCode = e.getErrorCode();
-            writerErrorResponse(response, ErrorResponse.of(errorCode));
+            writerErrorResponse(response, ErrorResponse.of(errorCode.getMessage(), errorCode.getStatusCode()));
         } catch (Exception e) {
             writerErrorResponse(response, ErrorResponse.of(e.getMessage(), response.getStatus()));
         }
