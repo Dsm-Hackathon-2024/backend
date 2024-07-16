@@ -53,7 +53,10 @@ public class JwtTokenProvider {
     public TokenResponse receiveToken(String username) {
         Date now = new Date();
 
-        User user = userFacade.findByUsername(username);
+        TokenResponse.builder()
+                .accessToken(createAccessToken(username))
+                .accessExpiredAt(new Date(now.getTime() + jwtProperties.getAccessExpiration()))
+                .build();
 
         return TokenResponse.builder().accessToken(createAccessToken(username)).build();
     }
