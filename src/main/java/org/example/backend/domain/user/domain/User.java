@@ -5,6 +5,9 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.backend.domain.invest.domain.Invest;
+
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -20,6 +23,9 @@ public class User {
 
     @Column(columnDefinition = "char(5)", nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Invest> invests;
 
     @Builder
     public User(String password, String name) {
