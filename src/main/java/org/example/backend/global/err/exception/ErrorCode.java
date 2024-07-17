@@ -32,7 +32,14 @@ public enum ErrorCode {
     FEIGN_TOKEN_EXPIRED(419, "Feign Token Expired"),
 
     //500
-    INTERNAL_SERVER_ERROR(500, "server error");
+    INTERNAL_SERVER_ERROR(500, "server error"),
+
+    // General errors
+    INSUFFICIENT_POINTS(400, "Insufficient points to buy stocks"),
+    INVALID_QUANTITY(400, "Invalid quantity"),
+    STOCK_NOT_FOUND(404, "Stock not found"),
+    INSUFFICIENT_STOCKS(400, "User does not own enough stocks to sell");
+
 
     private final int statusCode;
     private final String message;
