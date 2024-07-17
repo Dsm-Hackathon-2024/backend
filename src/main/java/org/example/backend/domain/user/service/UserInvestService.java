@@ -28,6 +28,7 @@ public class UserInvestService {
                         .roc(invest.getRoc())
                         .name(invest.getName())
                         .price(invest.getPrice())
+                        .quantity(invest.getQuantity())
                         .build()
                 )
                 .collect(Collectors.toList());
