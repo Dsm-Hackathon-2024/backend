@@ -15,9 +15,8 @@ public class AddUserPointService {
     private final UserFacade userFacade;
 
     @Transactional
-    public void execute(PointRequest request) {
+    public void execute(Integer point) {
         User user = userFacade.getCurrentUser();
-
-        user.setPoint(user.getPoint() + request.getPoint());
+        user.setPoint(user.getPoint() + point);
     }
 }
