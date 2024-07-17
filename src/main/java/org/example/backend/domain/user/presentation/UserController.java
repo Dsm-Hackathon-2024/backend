@@ -53,7 +53,7 @@ public class UserController {
         return rankUserPointService.execute();
     }
 
-    @PutMapping("point")
+    @PutMapping("/point")
     public void addUserPoints(@RequestBody @Valid PointRequest request) {
         addUserPointService.execute(request);
     }
