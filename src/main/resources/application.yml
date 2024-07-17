@@ -25,5 +25,9 @@ jwt:
 stock:
   secret-key: ${STOCK_SECRET_KEY}
 
+naver:
+  client-id: ${NAVER_CLIENT_ID}
+  client-secret: ${NAVER_CLIIENT_SECRET}
+
 server:
   port: 8080

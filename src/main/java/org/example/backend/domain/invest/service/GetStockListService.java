@@ -22,7 +22,6 @@ public class GetStockListService {
     @Transactional(readOnly = true)
     public GetStockListResponse execute() {
         StockListResponse stockListResponse = stockFeign.getStockPriceInfo(secretKey, "json");
-        System.out.println("sdklfsjldjflsj");
 
         return GetStockListResponse.builder()
                 .stocks(stockListResponse.getResponse().getBody().getItems().getItem().stream().map(
