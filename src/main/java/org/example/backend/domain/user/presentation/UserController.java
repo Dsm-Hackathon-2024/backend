@@ -3,16 +3,13 @@ package org.example.backend.domain.user.presentation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.backend.domain.user.presentation.dto.request.LoginRequest;
+import org.example.backend.domain.user.presentation.dto.request.PointRequest;
 import org.example.backend.domain.user.presentation.dto.request.SignupRequest;
 import org.example.backend.domain.user.presentation.dto.response.RankUserPointResponse;
 import org.example.backend.domain.user.presentation.dto.response.TokenResponse;
 import org.example.backend.domain.user.presentation.dto.response.UserInfoResponse;
 import org.example.backend.domain.user.presentation.dto.response.UserInvestResponse;
-import org.example.backend.domain.user.service.RankUserPointService;
-import org.example.backend.domain.user.service.UserLoginService;
-import org.example.backend.domain.user.service.UserInfoService;
-import org.example.backend.domain.user.service.UserSignupService;
-import org.example.backend.domain.user.service.UserInvestService;
+import org.example.backend.domain.user.service.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +25,7 @@ public class UserController {
     private final UserInfoService userInfoService;
     private final UserInvestService userInvestService;
     private final RankUserPointService rankUserPointService;
+    private final AddUserPointService addUserPointService;
 
     @PostMapping("/auth/signup")
     @ResponseStatus(HttpStatus.CREATED)
@@ -53,5 +51,10 @@ public class UserController {
     @GetMapping("/rank")
     public RankUserPointResponse getRankUserPoints() {
         return rankUserPointService.execute();
+    }
+
+    @PutMapping("/point")
+    public void addUserPoints(@RequestBody @Valid PointRequest request) {
+        addUserPointService.execute(request);
     }
 }
