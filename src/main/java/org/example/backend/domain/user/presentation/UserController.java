@@ -53,8 +53,9 @@ public class UserController {
         return rankUserPointService.execute();
     }
 
-    @PutMapping("/point")
-    public void addUserPoints(@RequestBody @Valid PointRequest request) {
-        addUserPointService.execute(request);
+    @PutMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void addUserPoints(@RequestParam("point") Integer point) {
+        addUserPointService.execute(point);
     }
 }
