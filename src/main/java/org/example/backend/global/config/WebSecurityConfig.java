@@ -35,6 +35,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
 
                         .requestMatchers("/user/auth/**").permitAll()
+                        .requestMatchers("/invest/stocks").permitAll()
                         .anyRequest().authenticated())
 
                 .with(new FilterConfig(jwtTokenProvider, objectMapper), Customizer.withDefaults());
