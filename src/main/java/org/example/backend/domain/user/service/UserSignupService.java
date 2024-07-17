@@ -35,7 +35,7 @@ public class UserSignupService {
         User user = userRepository.save(User.builder()
                 .name(name)
                 .password(password)
-                .point(0L)
+                .point(100000L)
                 .build());
 
         return tokenProvider.receiveToken(user.getName());
