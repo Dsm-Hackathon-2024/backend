@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "StockFeign", url = "https://apis.data.go.kr/1160100/service/GetStockSecuritiesInfoService/getStockPriceInfo", configuration = FeignConfig.class)
 public interface StockFeign {
     @GetMapping
-    StockListResponse getStockPriceInfo(@RequestParam("serviceKey") String key, @RequestParam("resultType") String resultType);
+    StockListResponse getStockPriceInfo(@RequestParam("serviceKey") String key, @RequestParam("resultType") String resultType, @RequestParam("numOfRows") Integer numOfRows);
 
     @GetMapping
     StockListResponse getStockPriceInfoDetails(@RequestParam("serviceKey") String key, @RequestParam("resultType") String resultType, @RequestParam("itmsNm") String itmsNm);
