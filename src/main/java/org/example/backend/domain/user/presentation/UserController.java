@@ -5,10 +5,10 @@ import lombok.RequiredArgsConstructor;
 import org.example.backend.domain.user.presentation.dto.request.LoginRequest;
 import org.example.backend.domain.user.presentation.dto.request.SignupRequest;
 import org.example.backend.domain.user.presentation.dto.response.TokenResponse;
-import org.example.backend.domain.user.presentation.dto.response.UserPointResponse;
+import org.example.backend.domain.user.presentation.dto.response.UserInfoResponse;
 import org.example.backend.domain.user.presentation.dto.response.UserInvestResponse;
 import org.example.backend.domain.user.service.UserLoginService;
-import org.example.backend.domain.user.service.UserPointService;
+import org.example.backend.domain.user.service.UserInfoService;
 import org.example.backend.domain.user.service.UserSignupService;
 import org.example.backend.domain.user.service.UserInvestService;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class UserController {
 
     private final UserLoginService loginService;
     private final UserSignupService signupService;
-    private final UserPointService userPointService;
+    private final UserInfoService userInfoService;
     private final UserInvestService userInvestService;
 
     @PostMapping("/auth/signup")
@@ -37,9 +37,9 @@ public class UserController {
         return loginService.execute(request);
     }
 
-    @GetMapping("/mypage/points")
-    public UserPointResponse getUserPoints() {
-        return userPointService.execute();
+    @GetMapping("/mypage/userinfo")
+    public UserInfoResponse getUserPoints() {
+        return userInfoService.execute();
     }
 
     @GetMapping("/mypage/invest")
