@@ -8,8 +8,8 @@ import lombok.Getter;
 public class UserInvestResponse {
 
     private Long id;
-    private String image;
     private String name;
     private double roc;
     private double price;
+    private int quantity;
 }
