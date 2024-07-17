@@ -5,7 +5,8 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class UserPointResponse {
+public class UserInfoResponse {
 
+    private String name;
     private Long points;
 }
