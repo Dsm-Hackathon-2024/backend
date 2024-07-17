@@ -3,6 +3,8 @@ package org.example.backend.domain.invest.presentation;
 import lombok.RequiredArgsConstructor;
 import org.example.backend.domain.invest.presentation.dto.response.GetStockListResponse;
 import org.example.backend.domain.invest.service.GetStockListService;
+import org.example.backend.global.utils.openfeign.FeignClientErrorDecoder;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
