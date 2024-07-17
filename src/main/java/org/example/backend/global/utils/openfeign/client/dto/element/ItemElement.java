@@ -15,4 +15,7 @@ public class ItemElement {
     private String itmsNm;
     private String fltRt;
     private String clpr;
+    private String hipr;
+    private String lopr;
+    private String mkp;
 }
