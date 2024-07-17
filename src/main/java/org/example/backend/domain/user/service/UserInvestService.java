@@ -27,7 +27,6 @@ public class UserInvestService {
                         .id(invest.getId())
                         .roc(invest.getRoc())
                         .name(invest.getName())
-                        .image(invest.getImage())
                         .price(invest.getPrice())
                         .build()
                 )

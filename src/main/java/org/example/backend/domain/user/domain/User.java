@@ -30,4 +30,8 @@ public class User {
         this.name = name;
         this.point = point;
     }
+
+    public void setPoint(Long point) {
+        this.point = point;
+    }
 }
