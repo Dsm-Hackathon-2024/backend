@@ -3,6 +3,7 @@ package org.example.backend.domain.invest.presentation;
 import lombok.RequiredArgsConstructor;
 import org.example.backend.domain.invest.presentation.dto.repuest.BuyStockRequest;
 import org.example.backend.domain.invest.presentation.dto.repuest.SellStockRequest;
+import org.example.backend.domain.invest.presentation.dto.response.GetStockDetailResponse;
 import org.example.backend.domain.invest.presentation.dto.response.GetStockListResponse;
 import org.example.backend.domain.invest.service.BuyStockService;
 import org.example.backend.domain.invest.service.GetStockListService;
@@ -35,7 +36,7 @@ public class InvestController {
     }
 
     @GetMapping("/stocks/detail")
-    public GetStockListResponse getStockDetail(@RequestParam String itmsNm) {
+    public GetStockDetailResponse getStockDetail(@RequestParam String itmsNm) {
         return getStockService.execute(itmsNm);
     }
 }

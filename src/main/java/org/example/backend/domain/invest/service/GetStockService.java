@@ -1,7 +1,9 @@
 package org.example.backend.domain.invest.service;
 
 import lombok.RequiredArgsConstructor;
+import org.example.backend.domain.invest.presentation.dto.element.StockDetailElement;
 import org.example.backend.domain.invest.presentation.dto.element.StocksElement;
+import org.example.backend.domain.invest.presentation.dto.response.GetStockDetailResponse;
 import org.example.backend.domain.invest.presentation.dto.response.GetStockListResponse;
 import org.example.backend.global.utils.openfeign.client.StockFeign;
 import org.example.backend.global.utils.openfeign.client.dto.response.StockListResponse;
@@ -19,17 +21,20 @@ public class GetStockService {
     private final StockFeign stockFeign;
 
     @Transactional(readOnly = true)
-    public GetStockListResponse execute(String itmsNm) {
+    public GetStockDetailResponse execute(String itmsNm) {
         StockListResponse stockListResponse = stockFeign.getStockPriceInfoDetails(secretKey, "json", itmsNm);
 
-        return GetStockListResponse.builder()
+        return GetStockDetailResponse.builder()
                 .stocks(stockListResponse.getResponse().getBody().getItems().getItem().stream().map(
                         itemElement ->
-                                StocksElement.builder()
+                                StockDetailElement.builder()
                                         .basDt(itemElement.getBasDt())
                                         .itmsNm(itemElement.getItmsNm())
                                         .fltRt(itemElement.getFltRt())
                                         .clpr(itemElement.getClpr())
+                                        .hipr(itemElement.getHipr())
+                                        .lopr(itemElement.getLopr())
+                                        .mkp(itemElement.getMkp())
                                         .build()
 
                 ).collect(Collectors.toList())).build();
