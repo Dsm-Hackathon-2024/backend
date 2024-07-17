@@ -8,6 +8,6 @@ import lombok.Getter;
 public class StocksElement {
     private String basDt;
     private String itmsNm;
-    private int fltRt;
-    private int clpr;
+    private String fltRt;
+    private String clpr;
 }
