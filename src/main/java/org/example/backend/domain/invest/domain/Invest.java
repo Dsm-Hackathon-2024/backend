@@ -20,17 +20,29 @@ public class Invest {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    private String image;
     private String name;
-    private int roc;
-    private int price;
+    private double roc;
+    private double price;
+    private int quantity;
 
     @Builder
-    public Invest(User user, String image, String name, int roc, int price) {
+    public Invest(User user, String name, double roc, double price, int quantity) {
         this.user = user;
-        this.image = image;
         this.name = name;
         this.roc = roc;
         this.price = price;
+        this.quantity = quantity;
+    }
+
+    public void setRoc(double roc) {
+        this.roc = roc;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
