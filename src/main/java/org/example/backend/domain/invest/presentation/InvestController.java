@@ -6,6 +6,7 @@ import org.example.backend.domain.invest.presentation.dto.repuest.SellStockReque
 import org.example.backend.domain.invest.presentation.dto.response.GetStockListResponse;
 import org.example.backend.domain.invest.service.BuyStockService;
 import org.example.backend.domain.invest.service.GetStockListService;
+import org.example.backend.domain.invest.service.GetStockService;
 import org.example.backend.domain.invest.service.SellStockService;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ public class InvestController {
     private final GetStockListService getStockListService;
     private final BuyStockService buyStockService;
     private final SellStockService sellStockService;
+    private final GetStockService getStockService;
 
     @GetMapping("/stocks")
     public GetStockListResponse getStockList() {
@@ -30,5 +32,10 @@ public class InvestController {
     @PostMapping("/stocks/sell")
     public void sellStock(@RequestBody SellStockRequest request) {
         sellStockService.execute(request);
+    }
+
+    @GetMapping("/stocks/detail")
+    public GetStockListResponse getStockDetail(@RequestParam String itmsNm) {
+        return getStockService.execute(itmsNm);
     }
 }
