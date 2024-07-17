@@ -33,9 +33,8 @@ public class WebSecurityConfig {
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
                 .authorizeHttpRequests(authorize -> authorize
-
                         .requestMatchers("/user/auth/**").permitAll()
-                        .requestMatchers("/invest/stocks").permitAll()
+                        .requestMatchers("/invest/stocks/**").permitAll()
                         .anyRequest().authenticated())
 
                 .with(new FilterConfig(jwtTokenProvider, objectMapper), Customizer.withDefaults());
