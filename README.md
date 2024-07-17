@@ -4,19 +4,19 @@
     erDiagram
         USER {
             Long id PK
-            String username UK
-            String encrypted_password
+            String password
+            String name
             Long point
         }
     
         INVEST {
             Long id PK
             Long user_id FK
-            String image
             String name
-            int roc
-            int price
+            double roc
+            double price
+            int quantity
         }
     
-    USER ||--o{ INVEST: "has"
+        USER ||--o{ INVEST: "has"
 ``` 
