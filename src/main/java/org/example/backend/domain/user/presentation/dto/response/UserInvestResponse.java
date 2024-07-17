@@ -10,6 +10,6 @@ public class UserInvestResponse {
     private Long id;
     private String image;
     private String name;
-    private int roc;
-    private int price;
+    private double roc;
+    private double price;
 }
