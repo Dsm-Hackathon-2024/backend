@@ -22,7 +22,7 @@ public class GetStockService {
 
     @Transactional(readOnly = true)
     public GetStockDetailResponse execute(String itmsNm) {
-        StockListResponse stockListResponse = stockFeign.getStockPriceInfoDetails(secretKey, "json", itmsNm);
+        StockListResponse stockListResponse = stockFeign.getStockPriceInfoDetails(secretKey, "json", itmsNm, 46);
 
         return GetStockDetailResponse.builder()
                 .stocks(stockListResponse.getResponse().getBody().getItems().getItem().stream().map(
