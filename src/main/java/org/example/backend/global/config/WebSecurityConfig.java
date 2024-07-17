@@ -34,6 +34,8 @@ public class WebSecurityConfig {
 
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/user/auth/**").permitAll()
+                        .requestMatchers("/invest/stocks").permitAll()
+                        .requestMatchers("/news/**").permitAll()
                         .requestMatchers("/invest/stocks/**").permitAll()
                         .anyRequest().authenticated())
 
