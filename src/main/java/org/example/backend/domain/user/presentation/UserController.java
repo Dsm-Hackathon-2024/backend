@@ -53,7 +53,7 @@ public class UserController {
         return rankUserPointService.execute();
     }
 
-    @PutMapping
+    @PatchMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void addUserPoints(@RequestParam("point") Integer point) {
         addUserPointService.execute(point);
