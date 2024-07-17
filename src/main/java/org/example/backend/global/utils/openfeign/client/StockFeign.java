@@ -12,5 +12,5 @@ public interface StockFeign {
     StockListResponse getStockPriceInfo(@RequestParam("serviceKey") String key, @RequestParam("resultType") String resultType, @RequestParam("numOfRows") Integer numOfRows);
 
     @GetMapping
-    StockListResponse getStockPriceInfoDetails(@RequestParam("serviceKey") String key, @RequestParam("resultType") String resultType, @RequestParam("itmsNm") String itmsNm);
+    StockListResponse getStockPriceInfoDetails(@RequestParam("serviceKey") String key, @RequestParam("resultType") String resultType, @RequestParam("itmsNm") String itmsNm, Integer numOfRows);
 }
