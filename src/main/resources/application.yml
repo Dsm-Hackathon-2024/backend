@@ -5,6 +5,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/backend
     username: root
+    password: ${DB_PASSWORD}
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     open-in-view: false
@@ -16,6 +17,9 @@ jwt:
   prefix: Bearer
   secret: "1123456789"
   accessExpiration: 271000
+
+stock:
+  secret-key: ${STOCK_SECRET_KEY}
 
 server:
   port: 8080
